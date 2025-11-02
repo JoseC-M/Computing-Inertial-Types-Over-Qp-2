@@ -1,0 +1,97 @@
+Q2:=pAdicField(2,100);
+R<x>:=PolynomialRing(Q2);
+Q4<phi>:=ext<Q2|x^2-x-1>;
+RR<t>:=PolynomialRing(Q4);
+b:=Roots(t^2-5)[1][1];
+c:=1+2*b;
+Twists:=[-c*b,-1,c*b,-2,2*c*b,2,2*b,-c]; // This list contais the elements y_i for odd i
+
+E:=[[],[],[],[],[],[],[],[]];
+
+//Non-Exceptional Curves Of Conductor 8
+E[8,1] := EllipticCurve([0, 2, 0, 2, 136*phi + 84]);
+E[8,2] := EllipticCurve([0, 1, 0, 1, 8*phi + 5]);
+E[8,3] := EllipticCurve([0, 6*phi + 2, 0, 10*phi + 10, 20*phi - 40]);
+E[8,4] := EllipticCurve([0, -2*phi, 0, 6*phi + 4, -4*phi - 4]);
+E[8,5] := EllipticCurve([0, -1, 0, -3, -1]);
+E[8,6] := EllipticCurve([0, 0, 0, 2*phi - 2, 0]);
+E[8,7] := EllipticCurve([0, 2*phi, 0, 4*phi + 2, 12*phi + 8]);
+E[8,8] := EllipticCurve([0, 2*phi, 0, 6*phi + 4, 4*phi + 4]);
+E[8,9] := EllipticCurve([0, 2, 0, 4*phi + 2, 8*phi + 8]);
+E[8,10] := EllipticCurve([0, 2*phi, 0, 68*phi + 42, 4*phi]);
+E[8,11] := EllipticCurve([0, 4*phi, 0, 2*phi, 16*phi]);
+E[8,12] := EllipticCurve([0, -1, 0, -8*phi - 5, 24*phi - 3]);
+E[8,13] := EllipticCurve([0, -1, 0, 2*phi - 3, 2*phi - 1]);
+E[8,14] := EllipticCurve([0, 2 + 2*phi, 0, 0, 6*phi + 5]);
+E[8,15] := EllipticCurve([0, 4*phi, 0, 2*phi, 8*phi]);
+E[8,16] := EllipticCurve([0, -1, 0, 1, -8*phi - 5]);
+E[8,17] := EllipticCurve([0, -6*phi - 2, 0, 10*phi + 10, -20*phi + 40]);
+E[8,18] := EllipticCurve([0, 2 + 2*phi, 0, 340*phi + 210, 20*phi + 40]);
+E[8,19] := EllipticCurve([0, 1, 0, -8*phi - 5, -24*phi + 3]);
+E[8,20] := EllipticCurve([0, -4*phi, 0, 2*phi, -8*phi]);
+E[8,21] := EllipticCurve([0, -2*phi + 1, 0, -15, -10*phi + 5]);
+E[8,22] := EllipticCurve([0, -2, 0, 2, -136*phi - 84]);
+E[8,23] := EllipticCurve([0, 0, 0, 10*phi - 10, 0]);
+E[8,24] := EllipticCurve([0, 0, 0, -17280*phi - 6912, 2428416*phi + 2211840]);
+E[8,25] := EllipticCurve([0, -12*phi - 4, 0, 40*phi + 40, -160*phi + 160]);
+E[8,26] := EllipticCurve([0, -4*phi, 0, 2*phi, -16*phi]);
+E[8,27] := EllipticCurve([0, 1, 0, 2*phi - 3, -2*phi + 1]);
+E[8,28] := EllipticCurve([0, 0, 0, -2, 0]);
+E[8,29] := EllipticCurve([0, -2*phi, 0, 4*phi + 2, -12*phi - 8]);
+E[8,30] := EllipticCurve([0, 0, 0, 25920*phi + 4320, -6497280*phi + 138240]);
+E[8,31] := EllipticCurve([0, 2*phi - 1, 0, -15, 10*phi - 5]);
+E[8,32] := EllipticCurve([0, -2*phi - 4, 0, 340*phi + 210, -20*phi - 40]);
+E[8,33] := EllipticCurve([0, 0, 0, -8, 0]);
+E[8,34] := EllipticCurve([0, -8*phi, 0, 8*phi, -64*phi]);
+E[8,35] := EllipticCurve([0, 2*phi, 0, 10*phi + 6, 4*phi + 4]);
+E[8,36] := EllipticCurve([0, -2*phi, 0, 10*phi + 6, -4*phi - 2]);
+E[8,37] := EllipticCurve([0, 1, 0, -3, 1]);
+E[8,38] := EllipticCurve([0, 12*phi + 4, 0, 40*phi + 40, 160*phi - 320]);
+E[8,39] := EllipticCurve([0, 8*phi, 0, 8*phi, 64*phi]);
+E[8,40] := EllipticCurve([0, -2*phi, 0, 68*phi + 42, -4*phi]);
+
+
+
+
+//Non-Exceptional Curves Of Conductor 6
+E[6,1]  := EllipticCurve([0, 1, 0, 2*(3*phi+2), 2*(phi+1)]);
+E[6,2]  := EllipticCurve([0, -2*phi+1, 0, 2*(15*phi+10), 2*(-15*phi-5)]);
+E[6,3]  := EllipticCurve([0, 2*(2*phi-1), 0, 2^3*(15*phi+10), 2^4*(15*phi+5)]);
+E[6,4]  := EllipticCurve([0, 1, 0, 2*phi, 2*(phi+1)]);
+E[6,5]  := EllipticCurve([0, 1, 0, 2^2, 2*(2*phi+1)]);
+E[6,6]  := EllipticCurve([0, 2, 0, 2^3*(3*phi+2), 2^4*(phi+1)]);
+E[6,7]  := EllipticCurve([0, 0, 0, 2^6*(-27), 2^7*513]);
+E[6,8]  := EllipticCurve([0, 2*(2*phi-1), 0, 2^3*5*phi, 2^4*(15*phi+5)]);
+E[6,9]  := EllipticCurve([0, 0, 0, 2^6*(-135), 2^7*(-5130*phi+2565)]);
+E[6,10] := EllipticCurve([0, 1, 0, 2^2, 2]);
+E[6,11] := EllipticCurve([0, 1, 0, 2^3, 2]);
+E[6,12] := EllipticCurve([0, 0, 0, 2^6*(-27), 2^7*(-513)]);
+E[6,13] := EllipticCurve([0, 1, 0, 2^4, 2*(2*phi+1)]);
+E[6,14] := EllipticCurve([0, 1, 0, 2*(phi+1), 2*phi]);
+E[6,15] := EllipticCurve([0, 2*phi-1, 0, 2*5*phi, 2*(15*phi+5)]);
+E[6,16] := EllipticCurve([0, 0, 0, 2^6*(-135), 2^7*(5130*phi-2565)]);
+E[6,17] := EllipticCurve([0, -2, 0, 2^4, 2^5*(-1)]);
+E[6,18] := EllipticCurve([0, 2*(2*phi-1), 0, 2^4*5, 2^5*(10*phi-5)]);
+E[6,19] := EllipticCurve([0, 2, 0, 2^4, 2^5]);
+E[6,20] := EllipticCurve([0, 2*(-2*phi+1), 0, 2^4*5, 2^5*(-10*phi+5)]);
+
+
+//Non-Exceptional Curves Of Conductor 5
+E[5,1] := EllipticCurve([0, 1, 0, 2, 2^2*phi]);         
+E[5,2] := EllipticCurve([0, 0, 0, -1, 0]);              
+E[5,3] := EllipticCurve([0, 1, 0, 2, 2^2]);             
+E[5,4] := EllipticCurve([0, 1, 0, 2, 2^2*(phi + 1)]);   
+
+
+//Non-Exceptional Curves Of Conductor 4
+E[4,1] := EllipticCurve([0, 0, 0, 2^4*(-135), 2^4*(-5130*phi + 2565)]);  
+E[4,2] := EllipticCurve([0, 0, 0, 2^4*(-27), 2^4*(-513)]);               
+E[4,3] := EllipticCurve([0, 0, 0, 2^4*(-135), 2^4*(5130*phi - 2565)]);   
+E[4,4] := EllipticCurve([0, 2*phi-1, 0, 2^2*5, 2^2*(10*phi-5)]);        
+E[4,5] := EllipticCurve([0, -1, 0, 2^2, -2^2]);                           
+E[4,6] := EllipticCurve([0, -2*phi+1, 0, 2^2*5, 2^2*(-10*phi+5)]);       
+
+
+//Non-Exceptional Curves Of Conductor 2
+E[2,1] := EllipticCurve([0,1,0,2^2,2^2]);
+

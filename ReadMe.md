@@ -1,190 +1,28 @@
-load "p=2Curves.magma";
 
-Pol:=[*[* *],[* *],[* *],[* *],[* *],[* *],[* *],[* *]*];
+This repository contains pdf tables and MAGMA files in support of "Inertial Types of Elliptic Curves over Q_p^2" by Jose Castro-Moreno and Nuno Freitas.
 
-Pol[2,1]:=t^3 + 2;
+# Index
+    MAGMA Files.  
+* [p=2Setting.magma] and [p=3Setting.magma] In this files we define, for p=2 and p=3 respectively the field extensions, groups and generators appearing in the paper. Also we define a function that computes the m-torsion field of an elliptic curve. 
+* [p=2Curves.magma] and [p=3Curves.magma] In this files we define the curves realizing each of the possible inertial types appearing on the paper. 
+* [p=2Fields.magma] and [p=3Fields.magma] This files defines contain the explicit polynomials and fields defining the field cut out by the inertial types of the curves. 
+* [p=2MainChecks.magma] and [p=3MainChecks.magma] This files contains several functions that allows the reader to check all the claims made in the paper.
+* [p=2Exceptionals.magma] This file contains the computations supporting the proof of theorem 8.4. and a function that computes the characters describing the exceptionals the inertial types.  
 
-Pol[4,1]:=t^2 + 2*O4.1*t + 2;
-Pol[4,2]:=t^2 + 2*t + 2;
-Pol[4,3]:=t^2 + (2*phi + 2)*t+2;
-Pol[4,4]:=t^6 + (2*phi + 2)*t^3 + 6;
-Pol[4,5]:=t^6 + 2*t^3 + 2;
-Pol[4,6]:=t^6 + 2*phi*t^3 + 6;
+    Tables
+* [TablesOfExceptionalsp=2.pdf] Tables containing for each exceptional inertial type of Q4, an explicit Weierstrass model of a curve realizing it and a polynomial describing its inertial field.
+* [TablesOfNONExceptionalsp=2.pdf]Tables containing for each nonexceptional inertial type of Q4, an explicit Weierstrass model of a curve realizing it and a polynomial describing its inertial field.
+* [Tablesp=3.pdf] Tables containing for each inertial type of Q9, an explicit Weierstrass model of a curve realizing it and a polynomial describing its inertial field.
 
-Pol[5,1]:=t^8 + 2*t^6 + 4*phi*t^4 + 4*t^3 + 4*t + 4*phi + 2;
-Pol[5,2]:=t^8 + 2*t^6 + 4*t^3 + 4*t + 6;
-Pol[5,3]:=t^8 + 2*t^6 + 4*t^3 + 4*t + 2;
-Pol[5,4]:=t^8 + 2*t^6 + 4*t^3 + 4*t + 4*phi + 6;
+# Installation
 
-Pol[6,1]:=t^4 + 4*t^3 + 2*t^2 + (4*phi + 4)*t + 2;
-Pol[6,2]:=t^4 + (4*phi + 4)*t^3 + 2*t^2 + (4*phi + 4)*t + 10;
-Pol[6,3]:=t^4 + 4*t^3 + 2*t^2 + 4*phi*t + 10;
-Pol[6,4]:=t^4 + 4*phi*t^3 + 2*t^2 + (4*phi + 4)*t + 4*phi + 2;
-Pol[6,5]:=t^8 + (4*phi + 4)*t^7 + 2*t^6 + 4*t^5 + 4*t^3 + 12*phi + 2;
-Pol[6,6]:=t^4 + 4*phi*t^3 + 2*t^2 + 4*phi*t + 2;
-Pol[6,7]:=t^2 - 2;
-Pol[6,8]:=t^4 + 4*t^3 + 2*t^2 + 4*phi*t + 4*phi + 10;
-Pol[6,9]:=t^2 + (4*phi - 2);
-Pol[6,10]:=t^8 + 2*t^6 + 4*t^5 + 4*t^3 + 2;
-Pol[6,11]:=t^8 + 4*t^7 + 2*t^6 + 4*t^5 + 4*t^3 + 6;
-Pol[6,12]:=t^2 + 2;
-Pol[6,13]:=t^8 + 4*phi*t^7 + 2*t^6 + 4*t^5 + 4*t^3 + 12*phi + 6;
-Pol[6,14]:=t^4 + 4*phi*t^3 + 2*t^2 + 4*phi*t + 4*phi + 2;
-Pol[6,15]:=t^4 + 2*t^2 + (4*phi + 4)*t + 4*phi + 10;
-Pol[6,16]:=t^2 - (4*phi - 2);
-Pol[6,17]:=t^6 + 2;
-Pol[6,18]:=t^6 + (4*phi + 4)*t^3 + 8*phi + 2;
-Pol[6,19]:=t^6 + 4*t^3 + 2;
-Pol[6,20]:=t^6 + 4*phi*t^3 + 8*phi + 2;
-Pol[8,1]:=t^8 + 8*t^5 + (2*phi + 2)*t^4 + 4*phi*t^2 + (8*phi + 8)*t + 24*phi + 2;
-Pol[8,2]:=t^8 + (8*phi + 8)*t^7 + 4*phi*t^6 + 8*phi*t^5 + 2*phi*t^4 + (8*phi + 8)*t^3 + (4*phi + 4)*t^2 + 8*phi*t + 24*phi + 2;
-Pol[8,3]:=t^4 + 8*phi*t^3 + 4*phi*t^2 + 8*phi*t + 24*phi + 2;
-Pol[8,4]:=t^8 + 8*phi*t^7 + 4*t^6 + 2*phi*t^4 + 8*t^3 + (4*phi + 4)*t^2 + 8*phi*t + 8*phi + 6;
-Pol[8,5]:=t^4 + 8*t^3 + 8*t + 2;
-Pol[8,6]:=t^8 + (8*phi + 8)*t^7 + 2*t^4 + 8*t^3 + 4*t^2 + 8*t + 8*phi + 2;
-Pol[8,7]:=t^8 + 4*phi*t^6 + 8*phi*t^5 + 2*phi*t^4 + (8*phi + 8)*t^3 + (4*phi + 4)*t^2 + 8*phi*t + 2;
-Pol[8,8]:=t^8 + 8*t^7 + 4*t^6 + 2*phi*t^4 + 8*t^3 + (4*phi + 4)*t^2 + 8*phi*t + 8*phi + 6;
-Pol[8,9]:=t^8 + 8*t^7 + 2*t^4 + 8*t^3 + 4*t^2 + 8*t + 16*phi + 2;
-Pol[8,10]:=t^4 + 4*t^2 + 2;
-Pol[8,11]:=t^8 + (8*phi + 8)*t^7 + 8*t^5 + (2*phi + 2)*t^4 + 4*phi*t^2 + (8*phi + 8)*t + 16*phi + 2;
-Pol[8,12]:=t^8 + 8*phi*t^7 + 4*t^6 + 2*phi*t^4 + 8*t^3 + (4*phi + 4)*t^2 + 8*phi*t + 6;
-Pol[8,13]:=t^8 + 4*phi*t^6 + 8*phi*t^5 + (2*phi + 2)*t^4 + (8*phi + 8)*t^3 + 4*phi*t^2 + (8*phi + 8)*t + 6;
-Pol[8,14]:=t^8 + 8*phi*t^7 + 4*t^6 + 8*t^5 + 2*t^4 + 4*t^2 + 8*t + 16*phi + 2;
-Pol[8,15]:=t^4 + 8*t^3 + (4*phi + 4)*t^2 + (8*phi + 8)*t + 2;
-Pol[8,16]:=t^8 + 4*phi*t^6 + 8*phi*t^5 + 2*phi*t^4 + (8*phi + 8)*t^3 + (4*phi + 4)*t^2 + 8*phi*t + 24*phi + 2;
-Pol[8,17]:=t^4 + (8*phi + 8)*t^3 + 4*phi*t^2 + 8*phi*t + 24*phi + 2;
-Pol[8,18]:=t^4 + (8*phi + 8)*t^3 + 4*t^2 + 16*phi + 2;
-Pol[8,19]:=t^8 + 8*t^7 + 4*t^6 + 2*phi*t^4 + 8*t^3 + (4*phi + 4)*t^2 + 8*phi*t + 6;
-Pol[8,20]:=t^4 + (4*phi + 4)*t^2 + (8*phi + 8)*t + 16*phi + 2;
-Pol[8,21]:=t^4 + 8*phi*t^3 + 8*t + 16*phi + 2;
-Pol[8,22]:=t^8 + 8*phi*t^7 + 8*t^5 + (2*phi + 2)*t^4 + 4*phi*t^2 + (8*phi + 8)*t + 24*phi + 2;
-Pol[8,23]:=t^8 + 8*phi*t^7 + 2*t^4 + 8*t^3 + 4*t^2 + 8*t + 24*phi + 2;
-Pol[8,24]:=t^8 + (8*phi + 8)*t^7 + 4*t^6 + 8*t^5 + 2*t^4 + 4*t^2 + 8*t + 16*phi + 2;
-Pol[8,25]:=t^4 + 8*t^3 + 4*phi*t^2 + 8*phi*t + 24*phi + 2;
-Pol[8,26]:=t^8 + 8*t^7 + 8*t^5 + (2*phi + 2)*t^4 + 4*phi*t^2 + (8*phi + 8)*t + 16*phi + 2;
-Pol[8,27]:=t^8 + 8*phi*t^7 + 4*phi*t^6 + 8*phi*t^5 + (2*phi + 2)*t^4 + (8*phi + 8)*t^3 + 4*phi*t^2 + (8*phi + 8)*t + 6;
-Pol[8,28]:=t^8 + 8*t^7 + 4*t^6 + 8*t^5 + 2*t^4 + 4*t^2 + 8*t + 8*phi + 2;
-Pol[8,29]:=t^8 + (8*phi + 8)*t^7 + 4*phi*t^6 + 8*phi*t^5 + 2*phi*t^4 + (8*phi + 8)*t^3 + (4*phi + 4)*t^2 + 8*phi*t + 2;
-Pol[8,30]:=t^8 + 2*t^4 + 8*t^3 + 4*t^2 + 8*t + 2;
-Pol[8,31]:=t^4 + (8*phi + 8)*t^3 + 8*t + 16*phi + 2;
-Pol[8,32]:=t^4 + 8*phi*t^3 + 4*t^2 + 16*phi + 2;
-Pol[8,33]:=t^8 + 4*t^6 + 8*t^5 + 2*t^4 + 4*t^2 + 8*t + 24*phi + 2;
-Pol[8,34]:=t^4 + (8*phi + 8)*t^3 + (4*phi + 4)*t^2 + (8*phi + 8)*t + 2;
-Pol[8,35]:=t^8 + (8*phi + 8)*t^7 + 4*phi*t^6 + 8*phi*t^5 + (2*phi + 2)*t^4 + (8*phi + 8)*t^3 + 4*phi*t^2 + (8*phi + 8)*t + 8*phi + 6;
-Pol[8,36]:=t^8 + 8*t^7 + 4*phi*t^6 + 8*phi*t^5 + (2*phi + 2)*t^4 + (8*phi + 8)*t^3 + 4*phi*t^2 + (8*phi + 8)*t + 8*phi + 6;
-Pol[8,37]:=t^4 + 8*t + 2;
-Pol[8,38]:=t^4 + 4*phi*t^2 + 8*phi*t + 8*phi + 2;
-Pol[8,39]:=t^4 + 8*phi*t^3 + (4*phi + 4)*t^2 + (8*phi + 8)*t + 2;
-Pol[8,40]:=t^4 + 8*t^3 + 4*t^2 + 2;
+Clone this repository using
 
-InertiaFields:=[* *];
-for i in [1..#Pol] do
-Aux:=[*ext<Q4|Poly>: Poly in Pol[i]*];
-InertiaFields:=Append(InertiaFields,Aux);
-end for;
+```
+git clone https://github.com/roed314/padic_db.git
+```
+Start Magma within the `InertialTypes` folder, then load the file of interest, it will autoatically load the other files it needs to work.
 
-ExPol:=[*[* *],[* *],[* *],[* *],[* *],[* *],[* *],[* *]*];
+# Usage
 
-ExPol[3,1]:=t^24 + 2*phi*t^9 + 2*phi*t^6 + 2*phi;
-ExPol[3,2]:=t^24 + 2*t^9 + 2*t^6 + 2;
-ExPol[3,3]:=t^24 + (2*phi + 2)*t^9 + (2*phi + 2)*t^6 + 2*phi + 2;
-ExPol[4,1]:=t^24 + 2*t^15 + 2*t^6 + 2;
-ExPol[4,2]:=t^24 + 2*t^21 + (2*phi + 2)*t^15 + 2*t^6 + 2;
-ExPol[4,3]:=t^24 + 2*phi*t^15 + 2*phi*t^6 + 2*phi;
-ExPol[4,4]:=t^24 + 2*phi*t^21 + (2*phi + 2)*t^15 + 2*phi*t^6 + 2*phi + 4;
-ExPol[4,5]:=t^24 + (2*phi + 2)*t^15 + (2*phi + 2)*t^6 + 2*phi + 2;
-ExPol[4,6]:=t^24 + 2*phi*t^21 + 2*t^15 + 2*phi*t^6 + 6*phi;
-ExPol[4,7]:=t^24 + (2*phi + 2)*t^21 + 2*phi*t^15 + (2*phi + 2)*t^6 + 2*phi + 2;
-ExPol[4,8]:=t^24 + (2*phi + 2)*t^21 + 2*t^15 + (2*phi + 2)*t^6 + 2*phi + 2;
-ExPol[4,9]:=t^24 + 2*t^21 + 2*phi*t^15 + 2*t^6 + 2;
-ExPol[5,1]:=t^8 + (2*phi + 2)*t^6 + 4*t^4 + (4*phi + 4)*t^3 + 4*t + 2;
-ExPol[5,2]:=t^8 + 2*phi*t^6 + (4*phi + 4)*t^3 + 4*t + 2;
-ExPol[5,3]:=t^8 + (2*phi + 2)*t^6 + 4*t^4 + 4*t^3 + 4*t + 2;
-ExPol[5,4]:=t^8 + (2*phi + 2)*t^6 + 4*t^4 + 4*phi*t^3 + 4*t + 2;
-ExPol[5,5]:=t^8 + 2*phi*t^6 + 4*t^4 + 4*phi*t^3 + 4*t + 2;
-ExPol[5,6]:=t^8 + 2*phi*t^6 + 4*t^3 + 4*t + 2;
-ExPol[5,7]:=t^8 + 2*phi*t^6 + 4*t^4 + 4*t + 2;
-ExPol[5,8]:=t^8 + (2*phi + 2)*t^6 + 4*t^4 + 4*t + 2;
-ExPol[6,1]:=t^8 + 2*t^6 + 2*t^4 + (4*phi + 4)*t^3 + 2;
-ExPol[6,2]:=t^8 + (4*phi + 4)*t^7 + 2*t^6 + 2*t^4 + (4*phi + 4)*t^3 + 2;
-ExPol[6,3]:=t^8 + 4*phi*t^7 + 2*t^6 + 2*t^4 + (4*phi + 4)*t^3 + 2;
-ExPol[6,4]:=t^8 + 4*t^7 + 2*t^6 + 2*t^4 + (4*phi + 4)*t^3 + 2;
-ExPol[6,5]:=t^8 + (4*phi + 4)*t^7 + 2*t^6 + 2*t^4 + 4*phi*t^3 + 2;
-ExPol[6,6]:=t^8 + 4*phi*t^7 + 2*t^6 + 2*t^4 + 4*phi*t^3 + 2;
-ExPol[6,7]:=t^8 + 2*t^6 + 2*t^4 + 4*phi*t^3 + 2;
-ExPol[6,8]:=t^8 + 4*t^7 + 2*t^6 + 2*t^4 + 4*phi*t^3 + 10;
-ExPol[6,9]:=t^24 + (4*phi + 4)*t^21 + 4*phi*t^15 + 2*phi*t^6 + 4*phi*t^3 + 2*phi + 8;
-ExPol[6,10]:=t^24 + 4*t^21 + 2*phi*t^6 + 4*phi*t^3 + 2*phi;
-ExPol[6,11]:=t^24 + 4*t^15 + 2*phi*t^6 + 4*phi*t^3 + 2*phi;
-ExPol[6,12]:=t^24 + 4*phi*t^21 + (4*phi + 4)*t^15 + 2*phi*t^6 + 4*phi*t^3 + 2*phi;
-ExPol[6,13]:=t^24 + 4*t^21 + 2*t^6 + 4*t^3 + 2;
-ExPol[6,14]:=t^24 + 4*phi*t^21 + (4*phi + 4)*t^15 + 2*t^6 + 4*t^3 + 2;
-ExPol[6,15]:=t^24 + 4*t^15 + 2*t^6 + 4*t^3 + 2;
-ExPol[6,16]:=t^24 + (4*phi + 4)*t^21 + 4*phi*t^15 + 2*t^6 + 4*t^3 + 8*phi + 2;
-ExPol[6,17]:=t^24 + 4*t^21 + (2*phi + 2)*t^6 + (4*phi + 4)*t^3 + 2*phi + 2;
-ExPol[6,18]:=t^24 + 4*t^15 + (2*phi + 2)*t^6 + (4*phi + 4)*t^3 + 2*phi + 2;
-ExPol[6,19]:=t^24 + (4*phi + 4)*t^21 + 4*phi*t^15 + (2*phi + 2)*t^6 + (4*phi + 4)*t^3 + 2*phi + 2;
-ExPol[6,20]:=t^24 + 4*phi*t^21 + (4*phi + 4)*t^15 + (2*phi + 2)*t^6 + (4*phi + 4)*t^3 + 2*phi + 10;
-ExPol[6,21]:=t^8 + (4*phi + 4)*t^7 + (2*phi + 2)*t^6 + (4*phi + 4)*t^5 + 4*phi*t^3 + 8*phi + 2;
-ExPol[6,22]:=t^8 + 4*t^7 + (2*phi + 2)*t^6 + (4*phi + 4)*t^5 + 4*phi*t^3 + 8*phi + 2;
-ExPol[6,23]:=t^8 + (2*phi + 2)*t^6 + (4*phi + 4)*t^5 + 4*phi*t^3 + 8*phi + 2;
-ExPol[6,24]:=t^8 + 4*phi*t^7 + (2*phi + 2)*t^6 + (4*phi + 4)*t^5 + 4*phi*t^3 + 2;
-ExPol[6,25]:=t^8 + 4*phi*t^7 + 2*phi*t^6 + 4*phi*t^5 + (4*phi + 4)*t^3 + 2;
-ExPol[6,26]:=t^8 + (4*phi + 4)*t^7 + 2*phi*t^6 + 4*phi*t^5 + (4*phi + 4)*t^3 + 2;
-ExPol[6,27]:=t^8 + 2*phi*t^6 + 4*phi*t^5 + (4*phi + 4)*t^3 + 2;
-ExPol[6,28]:=t^8 + 4*t^7 + 2*phi*t^6 + 4*phi*t^5 + (4*phi + 4)*t^3 + 8*phi + 2;
-ExPol[7,1]:=t^24 + 4*t^21 + 4*t^12 + 8*phi*t^9 + 4*t^6 + (8*phi + 8)*t^3 + 2;
-ExPol[7,2]:=t^24 + 4*t^21 + (8*phi + 8)*t^9 + 4*t^6 + 2;
-ExPol[7,3]:=t^24 + 4*t^21 + (8*phi + 4)*t^12 + 4*t^6 + 8*phi*t^3 + 2;
-ExPol[7,4]:=t^24 + (4*phi + 4)*t^21 + (8*phi + 4)*t^12 + (8*phi + 8)*t^9 + (4*phi + 4)*t^6 + 8*phi*t^3 + 2*phi;
-ExPol[7,5]:=t^24 + 4*t^21 + 4*t^6 + 8*t^3 + 2;
-ExPol[7,6]:=t^24 + (4*phi + 4)*t^21 + (8*phi + 8)*t^9 + (4*phi + 4)*t^6 + (8*phi + 8)*t^3 + 2*phi;
-ExPol[7,7]:=t^24 + (4*phi + 4)*t^21 + 4*t^12 + 8*phi*t^9 + (4*phi + 4)*t^6 + 2*phi;
-ExPol[7,8]:=t^24 + 4*t^21 + 4*t^12 + 8*t^9 + 4*t^6 + 8*phi*t^3 + 2;
-ExPol[7,9]:=t^24 + (4*phi + 4)*t^21 + 8*phi*t^12 + 8*t^9 + (4*phi + 4)*t^6 + (8*phi + 8)*t^3 + 2*phi;
-ExPol[7,10]:=t^24 + 4*t^21 + 8*t^9 + 4*t^6 + 8*t^3 + 2;
-ExPol[7,11]:=t^24 + 4*t^21 + (8*phi + 4)*t^12 + (8*phi + 8)*t^9 + 4*t^6 + 8*phi*t^3 + 2;
-ExPol[7,12]:=t^24 + 4*t^21 + (8*phi + 4)*t^12 + 4*t^6 + (8*phi + 8)*t^3 + 2;
-ExPol[7,13]:=t^24 + 4*t^21 + 4*t^6 + 2;
-ExPol[7,14]:=t^24 + 4*phi*t^21 + (8*phi + 8)*t^9 + 4*phi*t^6 + 8*t^3 + 2*phi + 2;
-ExPol[7,15]:=t^24 + 4*phi*t^21 + (8*phi + 4)*t^12 + 4*phi*t^6 + 2*phi + 2;
-ExPol[7,16]:=t^24 + 4*phi*t^21 + 4*phi*t^6 + 8*phi*t^3 + 2*phi + 2;
-ExPol[7,17]:=t^24 + 4*phi*t^21 + 4*t^12 + 8*t^9 + 4*phi*t^6 + (8*phi + 8)*t^3 + 2*phi + 2;
-ExPol[7,18]:=t^24 + 4*phi*t^21 + (8*phi + 4)*t^12 + 8*phi*t^9 + 4*phi*t^6 + (8*phi + 8)*t^3 + 2*phi + 2;
-ExPol[7,19]:=t^24 + 4*phi*t^21 + (8*phi + 4)*t^12 + 8*phi*t^9 + 4*phi*t^6 + 2*phi + 2;
-ExPol[7,20]:=t^24 + 4*t^21 + 4*t^12 + 8*t^9 + 4*t^6 + (8*phi + 8)*t^3 + 2;
-ExPol[7,21]:=t^24 + 4*t^21 + 8*phi*t^12 + 8*phi*t^9 + 4*t^6 + 8*t^3 + 2;
-ExPol[7,22]:=t^24 + 4*t^21 + (8*phi + 4)*t^12 + (8*phi + 8)*t^9 + 4*t^6 + (8*phi + 8)*t^3 + 2;
-ExPol[7,23]:=t^24 + (4*phi + 4)*t^21 + (8*phi + 4)*t^12 + (8*phi + 8)*t^9 + (4*phi + 4)*t^6 + 2*phi;
-ExPol[7,24]:=t^24 + (4*phi + 4)*t^21 + 8*phi*t^12 + (4*phi + 4)*t^6 + (8*phi + 8)*t^3 + 2*phi;
-ExPol[7,25]:=t^24 + (4*phi + 4)*t^21 + (8*phi + 4)*t^12 + (4*phi + 4)*t^6 + 2*phi;
-ExPol[7,26]:=t^24 + (4*phi + 4)*t^21 + 8*phi*t^9 + (4*phi + 4)*t^6 + (8*phi + 8)*t^3 + 2*phi;
-ExPol[7,27]:=t^24 + 4*phi*t^21 + (8*phi + 4)*t^12 + 8*t^9 + 4*phi*t^6 + 2*phi + 2;
-ExPol[7,28]:=t^24 + 4*phi*t^21 + 4*phi*t^6 + 8*t^3 + 2*phi + 2;
-ExPol[7,29]:=t^24 + 4*phi*t^21 + (8*phi + 4)*t^12 + (8*phi + 8)*t^9 + 4*phi*t^6 + (8*phi + 8)*t^3 + 2*phi + 2;
-ExPol[7,30]:=t^24 + 4*phi*t^21 + 8*phi*t^9 + 4*phi*t^6 + 8*t^3 + 2*phi + 2;
-ExPol[7,31]:=t^24 + 4*phi*t^21 + 8*phi*t^12 + 8*phi*t^9 + 4*phi*t^6 + 8*phi*t^3 + 2*phi + 2;
-ExPol[7,32]:=t^24 + (4*phi + 4)*t^21 + 4*t^12 + 8*t^9 + (4*phi + 4)*t^6 + 8*phi*t^3 + 2*phi;
-ExPol[7,33]:=t^24 + 4*phi*t^21 + 8*t^9 + 4*phi*t^6 + 8*t^3 + 2*phi + 2;
-ExPol[7,34]:=t^24 + 4*t^21 + 8*phi*t^12 + (8*phi + 8)*t^9 + 4*t^6 + 8*t^3 + 2;
-ExPol[7,35]:=t^24 + (4*phi + 4)*t^21 + 8*t^9 + (4*phi + 4)*t^6 + 8*t^3 + 2*phi;
-ExPol[7,36]:=t^24 + 4*phi*t^21 + 8*t^9 + 4*phi*t^6 + 8*phi*t^3 + 2*phi + 2;
-ExPol[7,37]:=t^24 + (4*phi + 4)*t^21 + 4*t^12 + 8*phi*t^9 + (4*phi + 4)*t^6 + 8*phi*t^3 + 2*phi;
-ExPol[7,38]:=t^24 + (4*phi + 4)*t^21 + (8*phi + 4)*t^12 + (4*phi + 4)*t^6 + 8*phi*t^3 + 2*phi;
-ExPol[7,39]:=t^24 + 4*t^21 + 8*t^9 + 4*t^6 + 2;
-ExPol[7,40]:=t^24 + (4*phi + 4)*t^21 + (8*phi + 8)*t^9 + (4*phi + 4)*t^6 + 8*t^3 + 2*phi;
-ExPol[7,41]:=t^24 + 4*phi*t^21 + 8*phi*t^12 + (8*phi + 8)*t^9 + 4*phi*t^6 + 8*phi*t^3 + 2*phi + 2;
-ExPol[7,42]:=t^24 + (4*phi + 4)*t^21 + 8*phi*t^12 + 8*phi*t^9 + (4*phi + 4)*t^6 + 8*t^3 + 2*phi;
-ExPol[7,43]:=t^24 + 4*t^21 + 8*phi*t^9 + 4*t^6 + 2;
-ExPol[7,44]:=t^24 + (4*phi + 4)*t^21 + (8*phi + 4)*t^12 + 8*t^9 + (4*phi + 4)*t^6 + 2*phi;
-ExPol[7,45]:=t^24 + 4*phi*t^21 + (8*phi + 4)*t^12 + (8*phi + 8)*t^9 + 4*phi*t^6 + 2*phi + 2;
-ExPol[7,46]:=t^24 + 4*phi*t^21 + 4*t^12 + 4*phi*t^6 + (8*phi + 8)*t^3 + 2*phi + 2;
-ExPol[7,47]:=t^24 + 4*t^21 + 4*t^12 + 8*phi*t^9 + 4*t^6 + 8*phi*t^3 + 2;
-ExPol[7,48]:=t^24 + (4*phi + 4)*t^21 + (4*phi + 4)*t^6 + 8*t^3 + 2*phi;
-
-
-ExInertiaFields:=[* *];
-for i in [1..#ExPol] do
-Aux:=[*ext<Q4|Poly>: Poly in ExPol[i]*];
-ExInertiaFields:=Append(ExInertiaFields,Aux);
-end for;
+Inside each of the files there are detailed comments and examples explaining the intended way of use.

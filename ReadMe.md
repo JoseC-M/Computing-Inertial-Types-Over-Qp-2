@@ -19,7 +19,7 @@ This repository contains pdf tables and MAGMA files in support of "Inertial Type
 Clone this repository using
 
 ```
-git clone https://github.com/roed314/padic_db.git
+git clone https://github.com/JoseC-M/Computing-Inertial-Types-Over-Qp-2.git
 ```
 Start Magma within the `InertialTypes` folder, then load the file of interest, it will autoatically load the other files it needs to work.
 

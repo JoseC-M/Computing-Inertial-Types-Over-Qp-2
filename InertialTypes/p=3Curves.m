@@ -1,4 +1,4 @@
-load "p=3Setting.magma";
+load "p=3Setting.m";
 
 
 E:=[[],[],[],[],[]];

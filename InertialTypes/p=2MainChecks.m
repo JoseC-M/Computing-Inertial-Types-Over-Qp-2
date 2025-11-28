@@ -1,4 +1,4 @@
-load "p=2Fields.magma";
+load "p=2Fields.m";
 
 
 // The function QuickCheck ensures that all the curves have potentially good reduction, that they have the conductor we claim and that they obtain good reduction over the corresponding inertia field. 

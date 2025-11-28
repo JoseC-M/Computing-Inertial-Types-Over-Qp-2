@@ -3,16 +3,16 @@ This repository contains pdf tables and MAGMA files in support of "Inertial Type
 
 # Index
     MAGMA Files.  
-* [p=2Setting.m] and [p=3Setting.m] In this files we define, for p=2 and p=3 respectively the field extensions, groups and generators appearing in the paper. Also we define a function that computes the m-torsion field of an elliptic curve. 
-* [p=2Curves.m] and [p=3Curves.m] In this files we define the curves realizing each of the possible inertial types appearing on the paper. 
-* [p=2Fields.m] and [p=3Fields.m] This files defines contain the explicit polynomials and fields defining the field cut out by the inertial types of the curves. 
-* [p=2MainChecks.m] and [p=3MainChecks.m] This files contains several functions that allows the reader to check all the claims made in the paper.
-* [p=2Exceptionals.m] This file contains the computations supporting the proof of theorem 8.4. and a function that computes the characters describing the exceptionals the inertial types.  
+* [SettingQ4.m] and [SettingQ9.m] In this files we define, for p=2 and p=3 respectively the field extensions, groups and generators appearing in the paper. Also we define a function that computes the m-torsion field of an elliptic curve. 
+* [CurvesQ4.m] and [CurvesQ9.m] In this files we define the curves realizing each of the possible inertial types appearing on the paper. 
+* [FieldsQ4.m] and [FieldsQ9.m] This files defines contain the explicit polynomials and fields defining the field cut out by the inertial types of the curves. 
+* [MainChecksQ4.m] and [MainChecksQ9.m] This files contains several functions that allows the reader to check all the claims made in the paper.
+* [ExceptionalsQ4.m] This file contains the computations supporting the proof of theorem 8.4. and a function that computes the characters describing the exceptionals the inertial types.  
 
     Tables
-* [TablesOfExceptionalsp=2.pdf] Tables containing for each exceptional inertial type of Q4, an explicit Weierstrass model of a curve realizing it and a polynomial describing its inertial field.
-* [TablesOfNONExceptionalsp=2.pdf]Tables containing for each nonexceptional inertial type of Q4, an explicit Weierstrass model of a curve realizing it and a polynomial describing its inertial field.
-* [Tablesp=3.pdf] Tables containing for each inertial type of Q9, an explicit Weierstrass model of a curve realizing it and a polynomial describing its inertial field.
+* [ExceptionalsQ4.pdf] Tables containing for each exceptional inertial type of Q4, an explicit Weierstrass model of a curve realizing it and a polynomial describing its inertial field.
+* [NonExceptionalsQ4.pdf]Tables containing for each nonexceptional inertial type of Q4, an explicit Weierstrass model of a curve realizing it and a polynomial describing its inertial field.
+* [TablesQ9.pdf] Tables containing for each inertial type of Q9, an explicit Weierstrass model of a curve realizing it and a polynomial describing its inertial field.
 
 # Installation
 

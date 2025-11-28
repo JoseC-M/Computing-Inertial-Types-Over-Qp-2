@@ -1,5 +1,5 @@
 
-load "p=2Fields.m";
+load "FieldsQ4.m";
 
 //We explicitely define the cubic extensions of Q4.
 KC:=[];

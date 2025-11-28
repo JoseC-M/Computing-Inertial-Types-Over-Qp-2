@@ -1,4 +1,4 @@
-load "p=2Setting.m";
+load "SettingQ4.m";
 
 //In this file we define the elliptic curves appearing in the tables of the article the list E contains the nonexeptional ones and the list ExE contains the exceptional ones.
 // The first number correspond to the conductor of the curve and the second one enumerates the curves for a given conductor.

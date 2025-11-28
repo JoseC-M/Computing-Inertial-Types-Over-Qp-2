@@ -1,4 +1,4 @@
-load "p=3Curves.magma";
+load "p=3Curves.m";
 
 Pol:=[*[* *],[* *],[* *],[* *],[* *] *];
 

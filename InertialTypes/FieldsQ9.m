@@ -1,4 +1,4 @@
-load "p=3Curves.m";
+load "CurvesQ9.m";
 
 Pol:=[*[* *],[* *],[* *],[* *],[* *] *];
 

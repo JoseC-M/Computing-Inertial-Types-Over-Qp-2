@@ -1,4 +1,4 @@
-load "p=3Fields.m";
+load "FieldsQ9.m";
 
 // The function QuickCheck ensures that all the curves have potentially good reduction, that they have the conductor we claim and that they obtain good reduction over the corresponding inertia field. 
 function QuickCheck3()

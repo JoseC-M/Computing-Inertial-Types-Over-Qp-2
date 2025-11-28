@@ -1,4 +1,4 @@
-load "p=3Setting.m";
+load "SettingQ9.m";
 
 
 E:=[[],[],[],[],[]];
